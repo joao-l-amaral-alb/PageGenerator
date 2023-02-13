@@ -1,0 +1,23 @@
+<section class="fx-section">
+    <div class="fx-collapse-container">
+        <div id="wrapper_section{{props.uuid}}" class="fx-collapse fx-collapse-lvl2 {{props.headerDivClass}}">
+            <a 
+                [ngClass]="[isCollapsed() ? 'collapsed' : 'collapse']"
+                class="fx-test-section {{props.anchorClass}}" id="{{props.anchorID}}"
+                style="cursor: pointer;"
+                (click)="onToggleFxSection()"
+            >
+                <i *ngIf="onCompareToIgnoreCase(props.iClass, '')" class="fx-alert-icon {{props.iClass}}"></i>
+                <i class="fa fx-icon-expand fx-icon "></i>
+                <span class="fx-collapse-title {{props.spanClass}}">{{props.sectionTitle}}</span>
+            </a>
+        </div>
+
+        <fieldset 
+            id="@fieldsetID" 
+            [ngClass]="[isCollapsed() ? 'collapse' : 'in']"
+        >
+            <ng-content></ng-content>
+        </fieldset>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>testes</h1>
+
+            <app-collapsable
+                [componentProperties]="{
+                    sectionTitle: 'asdsd',
+                    collapseSection: false,
+                    anchorID: 'bola',
+                    fieldsetID: '',
+                    uniqueKey: '',
+                    parentID: '', 
+                    collapsedFieldSet: false,
+                    headerDivClass: '',
+                    anchorClass: '',
+                    iClass: '',
+                    spanClass: ''
+                }"
+            >
+                <fieldset></fieldset>
+            </app-collapsable>
+
+
+            <app-collapsable
+                [componentProperties]="{
+                    sectionTitle: 'asdsd2',
+                    collapseSection: true,
+                    anchorID: 'bola2',
+                    fieldsetID: '',
+                    uniqueKey: '',
+                    parentID: '', 
+                    collapsedFieldSet: true,
+                    headerDivClass: '',
+                    anchorClass: '',
+                    iClass: '',
+                    spanClass: ''
+                }"
+            >
+                <fieldset></fieldset>
+            </app-collapsable>
+        </div>
+    </div>
+</div>
