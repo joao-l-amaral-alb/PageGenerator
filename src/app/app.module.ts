@@ -10,7 +10,7 @@ import { PageGeneratorComponent } from './page-generator/page-generator.componen
 import { InventoryComponent } from './components/layout/inventory/inventory.component';
 import { ResultComponent } from './components/layout/result/result.component';
 import { CollapsableComponent } from './components/aggregators/collapsable/collapsable.component';
-import { FieldsetComponent } from './components/single/fieldset/fieldset.component';
+import { KeyUpValueDownTableComponent } from './components/single/fieldset/keyUpValueDownTable.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { FieldsetComponent } from './components/single/fieldset/fieldset.compone
     InventoryComponent,
     ResultComponent,
     CollapsableComponent,
-    FieldsetComponent
+    KeyUpValueDownTableComponent
   ],
   imports: [
     BrowserModule,

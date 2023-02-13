@@ -14,7 +14,7 @@
         </div>
 
         <fieldset 
-            id="@fieldsetID" 
+            id="{{props.fieldsetID}}" 
             [ngClass]="[isCollapsed() ? 'collapse' : 'in']"
         >
             <ng-content></ng-content>
