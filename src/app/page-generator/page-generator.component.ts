@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
 import { WorkFlowDefinition } from '../interfaces/workflow-definition';
 
@@ -8,20 +8,29 @@ import { WorkFlowDefinition } from '../interfaces/workflow-definition';
   styleUrls: ['./page-generator.component.css']
 })
 export class PageGeneratorComponent implements OnInit {
+  bodyHeight!: number;
 
-  metaData!: WorkFlowDefinition;
-  constructor(
-    private route: ActivatedRoute
-  ){}
+  @ViewChild('pageArea') targetElement!: ElementRef<HTMLInputElement>;
 
-  ngOnInit() {
-    this.route.data.subscribe(
-      (data: Data) => {
-        this.metaData = data['metaData'];
-        console.log(this.metaData.dataModel);
-        console.log(this.metaData.pageModel);
-      }
-    );
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this._setDynamicHeight();
+  }
+
+  constructor(){}
+
+  ngOnInit(): void {
+    this._setDynamicHeight();
+  }
+
+  getBodyHeight() {
+    return this.bodyHeight;
+  }
+
+  _setDynamicHeight(){
+    const bottomMargin = 55;
+    const desirableHeigh = window.innerHeight - bottomMargin;
+    this.bodyHeight=desirableHeigh;
   }
 
 }

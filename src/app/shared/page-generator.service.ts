@@ -3,11 +3,16 @@ import { WorkFlowDefinition } from "../interfaces/workflow-definition";
 
 @Injectable()
 export class PageGeneratorService {
-/*     frontEnd!: Map<string, any>;
-    modalData!: Map<string, any>;
+    // configuratorUpdated?: boolean;
 
-    setPageMetaData(aux: WorkFlowDefinition){
-        this.frontEnd = aux.pageModel;
-        this.modalData = aux.dataModel;
-    } */
+    inventory!: String;
+    result!: String;
+
+    setInventory(data: string) {
+        this.inventory = data;
+    }
+
+    setResult(data: string) {
+        this.result = data;
+    }
 }   

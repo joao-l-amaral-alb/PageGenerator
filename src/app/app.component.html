@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<div class="container-flex">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <app-configurator
+                    [label]='"Inventory"'
+                    [defaultValue]="'{}'"
+                ></app-configurator>
+            </div>
+            <div class="row">
+                <app-configurator
+                    [label]='"Result"'
+                    [defaultValue]="'{}'"
+                ></app-configurator>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <app-page-generator></app-page-generator>
+            </div>
+        </div>
+    </div>
+</div>

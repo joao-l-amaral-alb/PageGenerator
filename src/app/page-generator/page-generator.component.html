@@ -1,92 +1,253 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>testes</h1>
+<div 
+    #pageArea 
+    class="fixedComponents a" 
+    [ngStyle]="{'height.px': bodyHeight}"
+    (window:resize)="onResize($event)"
+>
+    <h3>Preview</h3>
 
-            <app-collapsable
-                [componentProperties]="{
-                    sectionTitle: 'asdsd',
-                    collapseSection: false,
-                    anchorID: 'bola',
-                    fieldsetID: '',
-                    uniqueKey: '',
-                    parentID: '', 
-                    collapsedFieldSet: false,
-                    headerDivClass: '',
-                    anchorClass: '',
-                    iClass: '',
-                    spanClass: ''
-                }"
-            >
-                <div class="row">
-                    <div class="col-sm-12">
-                        <app-keyUpValueDownTable
-                            [componentProperties]="{
-                                id: '',
-                                clazz: '',
-                                colSize: 3,
-                                key: 'bolas',
-                                value: 'bolas2'
-                            }"
-                        ></app-keyUpValueDownTable>
-                        <app-keyUpValueDownTable
-                            [componentProperties]="{
-                                id: '',
-                                clazz: '',
-                                colSize: 3,
-                                key: 'bolas1',
-                                value: 'bolas22'
-                            }"
-                        ></app-keyUpValueDownTable>
-                        
-                        <app-keyUpValueDownTable
-                            [componentProperties]="{
-                                id: '',
-                                clazz: '',
-                                colSize: 3,
-                                key: 'bolas11',
-                                value: 'bolas222'
-                            }"
-                        ></app-keyUpValueDownTable>
-                        <app-keyUpValueDownTable
-                            [componentProperties]="{
-                                id: '',
-                                clazz: '',
-                                colSize: 3,
-                                key: 'bolas111',
-                                value: 'bolas2222'
-                            }"
-                        ></app-keyUpValueDownTable>
-                    </div>
-                </div>
-            </app-collapsable>
-
-
-            <app-collapsable
-                [componentProperties]="{
-                    sectionTitle: 'asdsd2',
-                    collapseSection: true,
-                    anchorID: 'bola2',
-                    fieldsetID: '',
-                    uniqueKey: '',
-                    parentID: '', 
-                    collapsedFieldSet: true,
-                    headerDivClass: '',
-                    anchorClass: '',
-                    iClass: '',
-                    spanClass: ''
-                }"
-            >
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd',
+            collapseSection: false,
+            anchorID: 'bola',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <div class="row">
+            <div class="col-sm-12">
                 <app-keyUpValueDownTable
                     [componentProperties]="{
                         id: '',
                         clazz: '',
-                        colSize: 6,
-                        key: 'aaaa',
-                        value: 'bbbb'
+                        colSize: 3,
+                        key: 'bolas',
+                        value: 'bolas2'
                     }"
                 ></app-keyUpValueDownTable>
-            </app-collapsable>
+                <app-keyUpValueDownTable
+                    [componentProperties]="{
+                        id: '',
+                        clazz: '',
+                        colSize: 3,
+                        key: 'bolas1',
+                        value: 'bolas22'
+                    }"
+                ></app-keyUpValueDownTable>
+                
+                <app-keyUpValueDownTable
+                    [componentProperties]="{
+                        id: '',
+                        clazz: '',
+                        colSize: 3,
+                        key: 'bolas11',
+                        value: 'bolas222'
+                    }"
+                ></app-keyUpValueDownTable>
+                <app-keyUpValueDownTable
+                    [componentProperties]="{
+                        id: '',
+                        clazz: '',
+                        colSize: 3,
+                        key: 'bolas111',
+                        value: 'bolas2222'
+                    }"
+                ></app-keyUpValueDownTable>
+            </div>
         </div>
-    </div>
+    </app-collapsable>
+
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
 </div>

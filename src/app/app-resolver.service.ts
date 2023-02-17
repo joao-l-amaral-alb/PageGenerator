@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+/* import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core"
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
 import { catchError, EMPTY, map, Observable, of } from "rxjs";
@@ -17,18 +17,9 @@ export class AppResolver implements Resolve<WorkFlowDefinition>{
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): WorkFlowDefinition | Observable<WorkFlowDefinition> | Promise<WorkFlowDefinition> {
-        const orderType = route.params['orderType'];
-        const version = +route.params['version']; 
+        const orderId = route.params['orderId'];
 
-        const body: {orderType: string, version: number} = {orderType: orderType, version: version};
-
-        /* this.http.post<WorkFlowDefinition>("/pocs/getFrontData", body).subscribe(
-            (data: WorkFlowDefinition) => {
-                console.log(data);
-                console.log(data.dataModel);
-                return data;
-            }
-        ) */
+        const body: {orderId: string} = {orderId: orderId};
 
         return this.http.post<WorkFlowDefinition>("/pocs/getFrontData", body).pipe(
             map((data: WorkFlowDefinition) => {
@@ -41,4 +32,4 @@ export class AppResolver implements Resolve<WorkFlowDefinition>{
         );
     }
 
-}
+} */

@@ -136,6 +136,15 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/cdk@13.3.9":
+  version "13.3.9"
+  resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@angular/cdk/-/cdk-13.3.9.tgz#a177196e872e29be3f84d3a50f778d361c689ff7"
+  integrity sha512-XCuCbeuxWFyo3EYrgEYx7eHzwl76vaWcxtWXl00ka8d+WAOtMQ6Tf1D98ybYT5uwF9889fFpXAPw98mVnlo3MA==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    parse5 "^5.0.0"
+
 "@angular/cli@~13.2.2":
   version "13.2.6"
   resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@angular/cli/-/cli-13.2.6.tgz#d532375ac65b7e6204f979756bf12dda8392cd74"
@@ -202,6 +211,13 @@
   version "13.2.7"
   resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@angular/forms/-/forms-13.2.7.tgz#176f7f64d9b3d46fa99b495d700dd440831cd07f"
   integrity sha512-Did5ShmHTu52cljmNtMxUBUGEYHJ/FV5ZpKhbI7sd/VSFhXp9KWYUbfma0m7+CUJMGmpt6bmDaN0G2WS8Es1LQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@angular/material@13.3.9":
+  version "13.3.9"
+  resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@angular/material/-/material-13.3.9.tgz#efd8ab5800b654df01e36426391d31531e412425"
+  integrity sha512-FU8lcMgo+AL8ckd27B4V097ZPoIZNRHiCe3wpgkImT1qC0YwcyXZVn0MqQTTFSdC9a/aI8wPm3AbTClJEVw5Vw==
   dependencies:
     tslib "^2.3.0"
 
@@ -5895,6 +5911,11 @@ parse5-sax-parser@^6.0.1:
   integrity sha512-kXX+5S81lgESA0LsDuGjAlBybImAChYRMT+/uKCEXFBFOeEhS52qUCydGhU3qLRD8D9DVjaUo821WK7DM4iCeg==
   dependencies:
     parse5 "^6.0.1"
+
+parse5@^5.0.0:
+  version "5.1.1"
+  resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/parse5/-/parse5-5.1.1.tgz#f68e4e5ba1852ac2cadc00f4555fff6c2abb6178"
+  integrity sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
 
 parse5@^6.0.1:
   version "6.0.1"
