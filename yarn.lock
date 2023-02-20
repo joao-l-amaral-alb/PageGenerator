@@ -1238,6 +1238,14 @@
   resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@csstools/selector-specificity/-/selector-specificity-2.1.1.tgz#c9c61d9fe5ca5ac664e1153bb0aa0eba1c6d6308"
   integrity sha512-jwx+WCqszn53YHOfvFMJJRd/B2GqkCBt+1MJSG6o5/s8+ytHMvDZXsJgUEWLk12UnLd7HYKac4BYU5i/Ron1Cw==
 
+"@ctrl/ngx-codemirror@5.1.1":
+  version "5.1.1"
+  resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@ctrl/ngx-codemirror/-/ngx-codemirror-5.1.1.tgz#f0de414da2f42f2e5698d2d5f56617423d964fed"
+  integrity sha512-MAByA/cJBZY3yv/cpO87mF9Q24/ptCWf2Pr4n4V1w3G0ya5cKAIyHwIfvJ5nJz/4Gj2i2O/pteDWkyxrbyICoA==
+  dependencies:
+    "@types/codemirror" "^5.60.5"
+    tslib "^2.3.0"
+
 "@discoveryjs/json-ext@0.5.6":
   version "0.5.6"
   resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
@@ -1490,6 +1498,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/codemirror@^5.60.5":
+  version "5.60.7"
+  resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@types/codemirror/-/codemirror-5.60.7.tgz#efbb78e5e79f90c6762c2127c02096648e600808"
+  integrity sha512-QXIC+RPzt/1BGSuD6iFn6UMC9TDp+9hkOANYNPVsjjrDdzKphfRkwQDKGp2YaC54Yhz0g6P5uYTCCibZZEiMAA==
+  dependencies:
+    "@types/tern" "*"
+
 "@types/connect-history-api-fallback@^1.3.5":
   version "1.3.5"
   resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@types/connect-history-api-fallback/-/connect-history-api-fallback-1.3.5.tgz#d1f7a8a09d0ed5a57aee5ae9c18ab9b803205dae"
@@ -1635,6 +1650,13 @@
   integrity sha512-f0KEEe05NvUnat+boPTZ0dgaLZ4SfSouXUgv5noUiefG2ajgKjmETo9ZJyuqsl7dfl2aHlLJUiki6B4ZYldiiw==
   dependencies:
     "@types/node" "*"
+
+"@types/tern@*":
+  version "0.23.4"
+  resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/@types/tern/-/tern-0.23.4.tgz#03926eb13dbeaf3ae0d390caf706b2643a0127fb"
+  integrity sha512-JAUw1iXGO1qaWwEOzxTKJZ/5JxVeON9kvGZ/osgZaJImBnyjyn0cjovPsf6FNLmyGY8Vw9DoXZCMlfMkMwHRWg==
+  dependencies:
+    "@types/estree" "*"
 
 "@types/uuid@^9.0.0":
   version "9.0.0"
@@ -2530,6 +2552,11 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha512-RpAVKQA5T63xEj6/giIbUEtZwJ4UFIc3ZtvEkiaUERylqe8xb5IvqcgOurZLahv93CLKfxcw5YI+DZcUBRyLXA==
+
+codemirror@5:
+  version "5.65.12"
+  resolved "http://maven.ptin.corppt.com:80/api/npm/npm-releases/codemirror/-/codemirror-5.65.12.tgz#294fdf097d10ac5b56a9e011a91eff252afc73ae"
+  integrity sha512-z2jlHBocElRnPYysN2HAuhXbO3DNB0bcSKmNz3hcWR2Js2Dkhc1bEOxG93Z3DeUrnm+qx56XOY5wQmbP5KY0sw==
 
 color-convert@^1.9.0:
   version "1.9.3"

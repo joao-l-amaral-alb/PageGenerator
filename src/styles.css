@@ -2,9 +2,17 @@
 
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 
+@import '~codemirror/lib/codemirror';
+@import '~codemirror/theme/material';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .fixedComponents {
     overflow: auto;
+}
+
+.errorSnackBarBackground {
+    background-color:rgb(255, 95, 95);
+    color: black;
 }

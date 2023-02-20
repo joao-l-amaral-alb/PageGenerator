@@ -12,7 +12,10 @@ import { KeyUpValueDownTableComponent } from './components/single/fieldset/keyUp
 import { ConfiguratorComponent } from './configurator/configurator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    CodemirrorModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [PageGeneratorService],
   bootstrap: [AppComponent]

@@ -1,21 +1,8 @@
-<mat-form-field appearance="fill">
-    <mat-label>{{ componentId }}</mat-label>
-    <textarea 
-        #inputArea
-        rows="20"
-        matInput
-        style="resize: none;"
-        value="{{ defaultValue | json }}"
-        (focus)="onFocus()"
-        (focusout)="onFocus()"
-        tabindex="-1">
-    </textarea>
-    <button 
-        class="btn fx-sidebar-toggle-btn" 
-        title="Expandir/Colapsar sidebar"
-        [ngStyle]="{'background-color': (isOnFocus ? '#c7dde0' : '')}"
-        (click)="onSubmit()"
-    >
-        <i class="fa fa-angle-right"></i>
-    </button>
-</mat-form-field>
+<div class="container">
+    <label>{{ componentId }}</label>
+    <ngx-codemirror
+        [(ngModel)]="content"
+        [options]="codeMirrorOptions"
+        (ngModelChange)="setEditorContentDelayed($event)">
+    ></ngx-codemirror>
+</div>

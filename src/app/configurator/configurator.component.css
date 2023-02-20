@@ -1,17 +1,8 @@
-mat-form-field {
+.container {
     width: 94%;
 }
 
 .btn{
+    border: 1px solid gray;
     float: right;
-}
-
-::ng-deep .mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: #0099ab !important;
-}
-
-
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: white !important;
 }
