@@ -1,6 +1,9 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { debug } from 'console';
 import { v4 as uuid } from 'uuid';
+import { PageContext } from '../interfaces/area-enum';
+import { PageGeneratorService } from '../shared/page-generator.service';
 
 @Component({
   selector: 'app-configurator',
@@ -9,7 +12,7 @@ import { v4 as uuid } from 'uuid';
 })
 export class ConfiguratorComponent implements OnInit {
 
-  @Input("label") componentId!: string;
+  @Input("label") areaContext!: PageContext;
   @Input("defaultValue") defaultValue!: string;
 
   codeMirrorOptions: any = {
@@ -32,13 +35,14 @@ export class ConfiguratorComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   constructor(
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private pageGeneratorService: PageGeneratorService
   ) {
     this.uuid = uuid();
   }
 
   ngOnInit(): void {
-    console.log(`Component: ${this.componentId} :: uuid => ${this.uuid}`);
+    console.log(`Component: ${this.areaContext} :: uuid => ${this.uuid}`);
   }
 
   onSubmit(){
@@ -51,12 +55,23 @@ export class ConfiguratorComponent implements OnInit {
         clearTimeout(this.timeout);
     }
     this.timeout = setTimeout(() => {
-        let a = ""; 
         try{
-           a = JSON.parse(this.content);
+          const inputData = JSON.parse(this.content);
+          switch (this.areaContext) {
+            case PageContext.Inventory:
+              this.pageGeneratorService.setInventory(inputData);
+              this.pageGeneratorService.configuratorUpdated.next(true);
+              break;
+            case PageContext.Result:
+              this.pageGeneratorService.setResult(inputData);
+              this.pageGeneratorService.configuratorUpdated.next(true);
+              break;
+            default:
+              console.warn("Area not found");
+              return;
+          }
         }catch(event:any) {
-          console.error(event.message);
-          this._snackBar.open(`${event.message}`, '', {
+          this._snackBar.open(`${this.areaContext} :: ${event.message}`, '', {
             duration: 10000,
             panelClass: ['mat-toolbar', 'mat-warn'],
             horizontalPosition: this.horizontalPosition,

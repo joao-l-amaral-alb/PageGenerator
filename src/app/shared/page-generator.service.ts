@@ -1,12 +1,12 @@
 import { EventEmitter, Injectable } from "@angular/core";
-import { WorkFlowDefinition } from "../interfaces/workflow-definition";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class PageGeneratorService {
-    // configuratorUpdated?: boolean;
+    configuratorUpdated = new Subject<boolean>();
 
-    inventory!: String;
-    result!: String;
+    inventory?: String;
+    result?: String;
 
     setInventory(data: string) {
         this.inventory = data;
@@ -14,5 +14,13 @@ export class PageGeneratorService {
 
     setResult(data: string) {
         this.result = data;
+    }
+
+    getInventory() {
+        return this.inventory;
+    }
+
+    getResult() {
+        return this.result;
     }
 }   

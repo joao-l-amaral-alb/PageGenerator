@@ -1,14 +1,16 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { ActivatedRoute, Data } from '@angular/router';
-import { WorkFlowDefinition } from '../interfaces/workflow-definition';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { PageGeneratorService } from '../shared/page-generator.service';
 
 @Component({
   selector: 'app-page-generator',
   templateUrl: './page-generator.component.html',
   styleUrls: ['./page-generator.component.css']
 })
-export class PageGeneratorComponent implements OnInit {
+export class PageGeneratorComponent implements OnInit, OnDestroy {
   bodyHeight!: number;
+  pageGenObservable: any;
+
 
   @ViewChild('pageArea') targetElement!: ElementRef<HTMLInputElement>;
 
@@ -17,10 +19,22 @@ export class PageGeneratorComponent implements OnInit {
     this._setDynamicHeight();
   }
 
-  constructor(){}
+  constructor(
+    private pageGeneratorService: PageGeneratorService
+  ){}
+
+  ngOnDestroy(): void {
+    this.pageGenObservable.unsubcribe();
+  }
 
   ngOnInit(): void {
     this._setDynamicHeight();
+    this.pageGenObservable = this.pageGeneratorService.configuratorUpdated.subscribe(
+      (data) => {
+        console.log(this.pageGeneratorService.getInventory());
+        console.log(this.pageGeneratorService.getResult());
+      }
+    );
   }
 
   getBodyHeight() {
