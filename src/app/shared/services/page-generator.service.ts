@@ -5,8 +5,8 @@ import { Subject } from "rxjs";
 export class PageGeneratorService {
     configuratorUpdated = new Subject<boolean>();
 
-    inventory?: String;
-    result?: String;
+    inventory?: string;
+    result?: string;
 
     setInventory(data: string) {
         this.inventory = data;

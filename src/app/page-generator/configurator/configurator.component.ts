@@ -2,8 +2,8 @@ import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { debug } from 'console';
 import { v4 as uuid } from 'uuid';
-import { PageContext } from '../interfaces/area-enum';
-import { PageGeneratorService } from '../shared/page-generator.service';
+import { PageContext } from '../../interfaces/area-enum';
+import { PageGeneratorService } from '../../shared/services/page-generator.service';
 
 @Component({
   selector: 'app-configurator',
@@ -49,36 +49,42 @@ export class ConfiguratorComponent implements OnInit {
     console.log("Send to service");
   }
 
+  _isValidJson(input: string) {
+    try{
+      JSON.parse(input);
+      return input;
+    }catch(event:any) {
+      this._snackBar.open(`${this.areaContext} :: ${event.message}`, '', {
+        duration: 10000,
+        panelClass: ['mat-toolbar', 'mat-warn'],
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
+      return;
+    }
+  }
+
   
   setEditorContentDelayed = (event:any) => {
     if(this.timeout){
         clearTimeout(this.timeout);
     }
     this.timeout = setTimeout(() => {
-        try{
-          const inputData = JSON.parse(this.content);
-          switch (this.areaContext) {
-            case PageContext.Inventory:
-              this.pageGeneratorService.setInventory(inputData);
-              this.pageGeneratorService.configuratorUpdated.next(true);
-              break;
-            case PageContext.Result:
-              this.pageGeneratorService.setResult(inputData);
-              this.pageGeneratorService.configuratorUpdated.next(true);
-              break;
-            default:
-              console.warn("Area not found");
-              return;
-          }
-        }catch(event:any) {
-          this._snackBar.open(`${this.areaContext} :: ${event.message}`, '', {
-            duration: 10000,
-            panelClass: ['mat-toolbar', 'mat-warn'],
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
-          });
-          return;
+      if(this._isValidJson(this.content)) {
+        switch (this.areaContext) {
+          case PageContext.Inventory:
+            this.pageGeneratorService.setInventory(this.content);
+            this.pageGeneratorService.configuratorUpdated.next(true);
+            break;
+          case PageContext.Result:
+            this.pageGeneratorService.setResult(this.content);
+            this.pageGeneratorService.configuratorUpdated.next(true);
+            break;
+          default:
+            console.warn("Area not found");
+            return;
         }
+      }
     }, 1000);
 }
 

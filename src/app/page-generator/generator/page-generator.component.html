@@ -1,12 +1,22 @@
 <div 
     #pageArea 
-    class="fixedComponents a" 
+    class="fixedComponents" 
     [ngStyle]="{'height.px': bodyHeight}"
     (window:resize)="onResize($event)"
 >
-    <h3>Preview</h3>
+    <label>Preview</label>
 
-    <app-collapsable
+    <app-component-factory *ngFor="let pageArea of pageAreas"
+        [label]='pageArea'
+    ></app-component-factory>
+
+    <!-- <app-inventory></app-inventory>
+
+    <hr>
+
+    <app-result></app-result> -->
+
+<!--     <app-collapsable
         [componentProperties]="{
             sectionTitle: 'asdsd',
             collapseSection: false,
@@ -64,6 +74,58 @@
         </div>
     </app-collapsable>
 
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
+    <app-collapsable
+        [componentProperties]="{
+            sectionTitle: 'asdsd2',
+            collapseSection: false,
+            anchorID: 'bola2',
+            fieldsetID: '',
+            uniqueKey: '',
+            parentID: '', 
+            collapsedFieldSet: false,
+            headerDivClass: '',
+            anchorClass: '',
+            iClass: '',
+            spanClass: ''
+        }"
+    >
+        <app-keyUpValueDownTable
+            [componentProperties]="{
+                id: '',
+                clazz: '',
+                colSize: 6,
+                key: 'aaaa',
+                value: 'bbbb'
+            }"
+        ></app-keyUpValueDownTable>
+    </app-collapsable>
+
 
     <app-collapsable
         [componentProperties]="{
@@ -145,34 +207,6 @@
         ></app-keyUpValueDownTable>
     </app-collapsable>
 
-
-    <app-collapsable
-        [componentProperties]="{
-            sectionTitle: 'asdsd2',
-            collapseSection: false,
-            anchorID: 'bola2',
-            fieldsetID: '',
-            uniqueKey: '',
-            parentID: '', 
-            collapsedFieldSet: false,
-            headerDivClass: '',
-            anchorClass: '',
-            iClass: '',
-            spanClass: ''
-        }"
-    >
-        <app-keyUpValueDownTable
-            [componentProperties]="{
-                id: '',
-                clazz: '',
-                colSize: 6,
-                key: 'aaaa',
-                value: 'bbbb'
-            }"
-        ></app-keyUpValueDownTable>
-    </app-collapsable>
-
-
     <app-collapsable
         [componentProperties]="{
             sectionTitle: 'asdsd2',
@@ -223,31 +257,5 @@
                 value: 'bbbb'
             }"
         ></app-keyUpValueDownTable>
-    </app-collapsable>
-
-    <app-collapsable
-        [componentProperties]="{
-            sectionTitle: 'asdsd2',
-            collapseSection: false,
-            anchorID: 'bola2',
-            fieldsetID: '',
-            uniqueKey: '',
-            parentID: '', 
-            collapsedFieldSet: false,
-            headerDivClass: '',
-            anchorClass: '',
-            iClass: '',
-            spanClass: ''
-        }"
-    >
-        <app-keyUpValueDownTable
-            [componentProperties]="{
-                id: '',
-                clazz: '',
-                colSize: 6,
-                key: 'aaaa',
-                value: 'bbbb'
-            }"
-        ></app-keyUpValueDownTable>
-    </app-collapsable>
+    </app-collapsable> -->
 </div>
