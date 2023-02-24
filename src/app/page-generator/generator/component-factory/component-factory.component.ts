@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CollapsableComponent } from 'src/app/components/aggregators/collapsable/collapsable.component';
+import { setSingleObjectToListIfExists } from 'src/app/helpers/generalHelper';
 import { PageContext } from 'src/app/interfaces/area-enum';
 import { CreatePageDirective } from 'src/app/shared/directives/create-page.directive';
 import { PageGeneratorService } from 'src/app/shared/services/page-generator.service';
@@ -23,13 +24,37 @@ export class ComponentFactoryComponent implements OnInit {
   
   _loadComponent(data: string) {
 
-    if(this.data && this.data!.length > 0) {
+    if(data && data!.length > 0) {
+
+      const jsonData = JSON.parse(data);
+      const componentType = jsonData["element"];
+      const content = jsonData["content"];
+
+      console.log(componentType);
+      console.log(content);
+
+      switch(componentType) {
+        case 'collapseSection':
+          console.log("aggrComponent");
+          break;
+        case 'fieldset':
+          console.log("singleComponent");
+          break;
+        default:
+          console.log("errorComponent");
+      }
+
+      setSingleObjectToListIfExists(componentType);
+      setSingleObjectToListIfExists(content);
+
+      // --------------------------
+
       const viewContainerRef = this.createPage.viewContainerRef;
       viewContainerRef.clear();
 
       const componentRef = viewContainerRef.createComponent<CollapsableComponent>(CollapsableComponent);
       componentRef.instance.props = {
-        sectionTitle: 'asdsd',
+        sectionTitle: 'OLAASDASDASDASDSADAS',
         collapseSection: false,
         anchorID: 'bola',
         fieldsetID: '',

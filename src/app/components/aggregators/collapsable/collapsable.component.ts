@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { compareToIgnoreCase } from 'src/app/helpers/string-helper';
+import { compareToIgnoreCase } from 'src/app/helpers/generalHelper';
 import { v4 as uuid } from 'uuid';
 import { Collapsable, CollpableProps } from './collapsable-interface.service';
 

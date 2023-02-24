@@ -16,6 +16,8 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { FormsModule } from '@angular/forms';
 import { CreatePageDirective } from './shared/directives/create-page.directive';
 import { ComponentFactoryComponent } from './page-generator/generator/component-factory/component-factory.component';
+import { FactoryAggComponent } from './page-generator/generator/component-factory/factory-agg/factory-agg.component';
+import { FactorySingleComponent } from './page-generator/generator/component-factory/factory-single/factory-single.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ComponentFactoryComponent } from './page-generator/generator/component-
     KeyUpValueDownTableComponent,
     ConfiguratorComponent,
     CreatePageDirective,
-    ComponentFactoryComponent
+    ComponentFactoryComponent,
+    FactoryAggComponent,
+    FactorySingleComponent
   ],
   imports: [
     BrowserModule,
