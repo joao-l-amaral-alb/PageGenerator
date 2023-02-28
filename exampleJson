@@ -1,0 +1,62 @@
+[
+	{
+		"element": "collapseSection",
+		"labeli18n": "commons.inventory",
+		"configuration": {
+			"isCollapsed": false
+		},
+		"content": [
+			{
+				"element": "collapseSection",
+				"labeli18n": "commons.inventory2",
+				"configuration": {
+					"isCollapsed": true
+				},
+				"content": [
+					{
+						"element": "fieldset",
+						"labeli18n": "commons.inventory",
+						"content": [
+							{
+								"key":"ola",
+								"value":"ole"
+							},
+							{
+								"key":"oli",
+								"value":"olo"
+							}
+						]
+					}
+				]
+			},
+			{
+				"element": "fieldset",
+				"labeli18n": "commons.inventory",
+				"content": [ 
+					{
+						"key":"ola",
+						"value":"ole"
+					},
+					{
+						"key":"oli",
+						"value":"olo"
+					}
+				]
+			}
+		]
+	},
+	{
+		"element": "fieldset",
+		"labeli18n": "commons.inventory",
+		"content": [
+			{
+				"key":"ola",
+				"value":"ole"
+			},
+			{
+				"key":"oli",
+				"value":"olo"
+			}
+		]
+	}
+]
