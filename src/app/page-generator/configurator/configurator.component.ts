@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { debug } from 'console';
+import { setSingleObjectToListIfExists } from 'src/app/helpers/page-factory';
 import { v4 as uuid } from 'uuid';
 import { PageContext } from '../../interfaces/area-enum';
 import { PageGeneratorService } from '../../shared/services/page-generator.service';
@@ -32,7 +33,8 @@ export class ConfiguratorComponent implements OnInit {
   uuid: string;
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';  
+  baseJson: string = '{"body": _body}';
 
   constructor(
     private _snackBar: MatSnackBar,
@@ -64,6 +66,14 @@ export class ConfiguratorComponent implements OnInit {
     }
   }
 
+  _processArraysToBaseJson(data: string): any[] {
+    const listOfElements = setSingleObjectToListIfExists(data);
+    const pageBaseJson = `{"body": ${listOfElements}}`;
+    const baseBody = JSON.parse(pageBaseJson);
+
+    return baseBody["body"];
+  }
+
   
   setEditorContentDelayed = (event:any) => {
     if(this.timeout){
@@ -71,13 +81,16 @@ export class ConfiguratorComponent implements OnInit {
     }
     this.timeout = setTimeout(() => {
       if(this._isValidJson(this.content)) {
+        
+        const content = this._processArraysToBaseJson(this.content);
+
         switch (this.areaContext) {
           case PageContext.Inventory:
-            this.pageGeneratorService.setInventory(this.content);
+            this.pageGeneratorService.setInventory(content);
             this.pageGeneratorService.configuratorUpdated.next(true);
             break;
           case PageContext.Result:
-            this.pageGeneratorService.setResult(this.content);
+            this.pageGeneratorService.setResult(content);
             this.pageGeneratorService.configuratorUpdated.next(true);
             break;
           default:

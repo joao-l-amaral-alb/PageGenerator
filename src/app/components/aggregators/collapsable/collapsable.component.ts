@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { compareToIgnoreCase } from 'src/app/helpers/generalHelper';
+import { loadCompoments } from 'src/app/helpers/page-factory';
+import { CreatePageDirective } from 'src/app/shared/directives/create-page.directive';
 import { v4 as uuid } from 'uuid';
 import { Collapsable, CollpableProps } from './collapsable-interface.service';
 
@@ -11,11 +13,17 @@ import { Collapsable, CollpableProps } from './collapsable-interface.service';
 export class CollapsableComponent implements OnInit, Collapsable {
   @Input("componentProperties") props!: CollpableProps;
 
+  @ViewChild(CreatePageDirective, {static: true}) createPage!: CreatePageDirective;
+
+  data: string = "bolas";
+
   constructor() { }
 
   ngOnInit(): void { 
     this.props.uuid = uuid(); //Mandatory in every component
     console.log(`Component: COLLAPSABLE :: uuid => ${this.props.uuid}`);
+
+    // loadCompoments(this.data!, this.createPage, 2);
   }
 
   onToggleFxSection(){

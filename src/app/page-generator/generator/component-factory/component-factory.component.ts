@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CollapsableComponent } from 'src/app/components/aggregators/collapsable/collapsable.component';
-import { setSingleObjectToListIfExists } from 'src/app/helpers/generalHelper';
+import { loadCompoments } from 'src/app/helpers/page-factory';
+import { AggregatorElement } from 'src/app/interfaces/aggregator-element';
 import { PageContext } from 'src/app/interfaces/area-enum';
+import { SingleElement } from 'src/app/interfaces/single-element';
 import { CreatePageDirective } from 'src/app/shared/directives/create-page.directive';
 import { PageGeneratorService } from 'src/app/shared/services/page-generator.service';
 
@@ -16,60 +17,14 @@ export class ComponentFactoryComponent implements OnInit {
   @Input("label") areaContext!: PageContext;
   
   @ViewChild(CreatePageDirective, {static: true}) createPage!: CreatePageDirective;
-  data?: string;
+  @ViewChild('templateref') templateref: TemplateRef<{}> | undefined;
+
+  pageElementsData: AggregatorElement[] | SingleElement[] | undefined;
 
   constructor(
     private pageGeneratorService: PageGeneratorService
   ) { }
   
-  _loadComponent(data: string) {
-
-    if(data && data!.length > 0) {
-
-      const jsonData = JSON.parse(data);
-      const componentType = jsonData["element"];
-      const content = jsonData["content"];
-
-      console.log(componentType);
-      console.log(content);
-
-      switch(componentType) {
-        case 'collapseSection':
-          console.log("aggrComponent");
-          break;
-        case 'fieldset':
-          console.log("singleComponent");
-          break;
-        default:
-          console.log("errorComponent");
-      }
-
-      setSingleObjectToListIfExists(componentType);
-      setSingleObjectToListIfExists(content);
-
-      // --------------------------
-
-      const viewContainerRef = this.createPage.viewContainerRef;
-      viewContainerRef.clear();
-
-      const componentRef = viewContainerRef.createComponent<CollapsableComponent>(CollapsableComponent);
-      componentRef.instance.props = {
-        sectionTitle: 'OLAASDASDASDASDSADAS',
-        collapseSection: false,
-        anchorID: 'bola',
-        fieldsetID: '',
-        uniqueKey: '',
-        parentID: '', 
-        collapsedFieldSet: false,
-        headerDivClass: '',
-        anchorClass: '',
-        iClass: '',
-        spanClass: ''
-      };
-    }
-
-  }
-
   ngOnDestroy(): void {
     this.pageGenObservable!.unsubscribe();
   }
@@ -78,12 +33,21 @@ export class ComponentFactoryComponent implements OnInit {
     this.pageGenObservable = this.pageGeneratorService.configuratorUpdated.subscribe(
       () => {
         if(this.areaContext === PageContext.Inventory) {
-          this.data = this.pageGeneratorService.getInventory();
+          this.pageElementsData = <AggregatorElement[] | SingleElement[]> this.pageGeneratorService.getInventory();
         } else {
-          this.data = this.pageGeneratorService.getResult();
+          this.pageElementsData = this.pageGeneratorService.getResult();
         }
+        
+        const viewContainerRef: ViewContainerRef = this.createPage.viewContainerRef;
+        viewContainerRef.clear();
 
-        this._loadComponent(this.data!);
+        if(this.pageElementsData){
+
+          for(let pageElementData of this.pageElementsData){
+            loadCompoments(pageElementData, this.createPage, viewContainerRef);
+          }
+          
+        }
       }
     );
   }

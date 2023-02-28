@@ -17,7 +17,7 @@
             id="{{props.fieldsetID}}" 
             [ngClass]="[isCollapsed() ? 'collapse' : 'in']"
         >
-            <ng-content></ng-content>
+            <ng-template createPage></ng-template>
         </fieldset>
     </div>
 </section>

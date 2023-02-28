@@ -10,11 +10,3 @@ export function compareToIgnoreCase(a: string, b: string): number {
     }
     return 0;
 }
-
-export function setSingleObjectToListIfExists(obj: any){
-    if (Array.isArray(obj)) {
-        console.log("é um array");
-    } else {
-        console.log("não é um array");
-    }
-}

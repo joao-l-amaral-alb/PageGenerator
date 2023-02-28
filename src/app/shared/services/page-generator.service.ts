@@ -1,18 +1,20 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { AggregatorElement } from "src/app/interfaces/aggregator-element";
+import { SingleElement } from "src/app/interfaces/single-element";
 
 @Injectable()
 export class PageGeneratorService {
     configuratorUpdated = new Subject<boolean>();
 
-    inventory?: string;
-    result?: string;
+    inventory?: AggregatorElement[] | SingleElement[];
+    result?: AggregatorElement[] | SingleElement[];
 
-    setInventory(data: string) {
+    setInventory(data: AggregatorElement[] | SingleElement[]) {
         this.inventory = data;
     }
 
-    setResult(data: string) {
+    setResult(data: AggregatorElement[] | SingleElement[]) {
         this.result = data;
     }
 
