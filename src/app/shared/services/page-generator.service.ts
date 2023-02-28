@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { AggregatorElement } from "src/app/interfaces/aggregator-element";
-import { SingleElement } from "src/app/interfaces/single-element";
+import { AggregatorElement } from "src/app/interfaces/elements/aggregator-element";
+import { SingleElement } from "src/app/interfaces/elements/single-element";
 
 @Injectable()
 export class PageGeneratorService {

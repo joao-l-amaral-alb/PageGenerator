@@ -1,4 +1,5 @@
 export interface KeyUpValueDownTable {
+  
 }
 
 export type KeyUpValueDownTableProps = {

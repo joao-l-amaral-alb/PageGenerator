@@ -1,4 +1,5 @@
 .fixedComponents {
     overflow: auto;
     background: whitesmoke;
+    width: 100%;
 }

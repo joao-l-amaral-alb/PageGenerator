@@ -1,6 +1,8 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { compareToIgnoreCase } from 'src/app/helpers/generalHelper';
 import { loadCompoments } from 'src/app/helpers/page-factory';
+import { AggregatorElement } from 'src/app/interfaces/elements/aggregator-element';
+import { SingleElement } from 'src/app/interfaces/elements/single-element';
 import { CreatePageDirective } from 'src/app/shared/directives/create-page.directive';
 import { v4 as uuid } from 'uuid';
 import { Collapsable, CollpableProps } from './collapsable-interface.service';
@@ -12,28 +14,34 @@ import { Collapsable, CollpableProps } from './collapsable-interface.service';
 })
 export class CollapsableComponent implements OnInit, Collapsable {
   @Input("componentProperties") props!: CollpableProps;
+  @Input("pageElementsData") childContent: AggregatorElement[] | SingleElement[] | undefined;
 
   @ViewChild(CreatePageDirective, {static: true}) createPage!: CreatePageDirective;
-
-  data: string = "bolas";
-
+ 
   constructor() { }
 
   ngOnInit(): void { 
-    this.props.uuid = uuid(); //Mandatory in every component
-    console.log(`Component: COLLAPSABLE :: uuid => ${this.props.uuid}`);
+    this.props.uniqueKey = uuid(); //Mandatory in every component
+    console.log(`Component: COLLAPSABLE :: uuid => ${this.props.uniqueKey}`);
 
-    // loadCompoments(this.data!, this.createPage, 2);
+    const viewContainerRef: ViewContainerRef = this.createPage.viewContainerRef;
+    viewContainerRef.clear();
+
+    if(this.childContent){
+
+      for(let [index, pageElementData] of this.childContent.entries()){
+        loadCompoments(pageElementData, viewContainerRef, index);
+      }
+
+    }
   }
 
   onToggleFxSection(){
     console.log("onToggleFxSection");
-    if(this.props.anchorID) {
-      if(this.props.customFunc) {
-        this.props.customFunc();
-      } else {
-        this.onToggleCollapseFxSection()
-      }
+    if(this.props.customFunc) {
+      this.props.customFunc();
+    } else {
+      this.onToggleCollapseFxSection()
     }
   }
 

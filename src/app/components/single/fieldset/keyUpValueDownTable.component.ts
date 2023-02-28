@@ -7,11 +7,24 @@ import { KeyUpValueDownTableProps } from './keyUpValueDownTable-interface.servic
   styleUrls: ['./keyUpValueDownTable.component.css']
 })
 export class KeyUpValueDownTableComponent implements OnInit, KeyUpValueDownTableComponent{
-  @Input("componentProperties") props!: KeyUpValueDownTableProps;
+  @Input("componentProperties") props!: KeyUpValueDownTableProps[];
 
   constructor() { }
 
-  ngOnInit(): void {
+  calcBootstrap3RemainingColSize(contentSize: number, index: number) {
+    let numCol = "col-sm-3";
+    const contentSizeRest = contentSize % 4;
+
+    if(contentSizeRest == 3 && index == (contentSize-1) || 
+        (contentSizeRest == 2 && (index == (contentSize -1 ) || index == (contentSize -2)))) {
+          numCol = "col-sm-6";
+    } else if (contentSizeRest == 1 && index==(contentSize-1)) {
+      numCol = "col-sm-12";
+    }
+
+    return numCol;
   }
+
+  ngOnInit(): void {}
 
 }

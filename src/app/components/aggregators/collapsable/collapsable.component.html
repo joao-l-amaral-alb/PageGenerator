@@ -1,9 +1,9 @@
 <section class="fx-section">
     <div class="fx-collapse-container">
-        <div id="wrapper_section{{props.uuid}}" class="fx-collapse fx-collapse-lvl2 {{props.headerDivClass}}">
+        <div id="wrapper_section{{props.uniqueKey}}" class="fx-collapse fx-collapse-lvl2 {{props.headerDivClass}}">
             <a 
                 [ngClass]="[isCollapsed() ? 'collapsed' : 'collapse']"
-                class="fx-test-section {{props.anchorClass}}" id="{{props.anchorID}}"
+                class="fx-test-section {{props.anchorClass}}"
                 style="cursor: pointer;"
                 (click)="onToggleFxSection()"
             >

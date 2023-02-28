@@ -6,12 +6,10 @@ export interface Collapsable {
 }
 
 export type CollpableProps = {
-  uuid?: string;
   collapseSection: boolean;
   sectionTitle: string;
-  anchorID: string;
   fieldsetID: string;
-  uniqueKey: string;
+  uniqueKey?: string;
   parentID: string; 
   collapsedFieldSet: boolean;
   headerDivClass: string;
