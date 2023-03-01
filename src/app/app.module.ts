@@ -16,8 +16,8 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { FormsModule } from '@angular/forms';
 import { CreatePageDirective } from './shared/directives/create-page.directive';
 import { ComponentFactoryComponent } from './page-generator/generator/component-factory/component-factory.component';
-import { FactoryAggComponent } from './page-generator/generator/component-factory/factory-agg/factory-agg.component';
-import { FactorySingleComponent } from './page-generator/generator/component-factory/factory-single/factory-single.component';
+import { BasicHeaderComponent } from './components/aggregators/basic-header/basic-header.component';
+import { SectionHeaderComponent } from './components/aggregators/section-header/section-header.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +28,8 @@ import { FactorySingleComponent } from './page-generator/generator/component-fac
     ConfiguratorComponent,
     CreatePageDirective,
     ComponentFactoryComponent,
-    FactoryAggComponent,
-    FactorySingleComponent
+    BasicHeaderComponent,
+    SectionHeaderComponent
   ],
   imports: [
     BrowserModule,
