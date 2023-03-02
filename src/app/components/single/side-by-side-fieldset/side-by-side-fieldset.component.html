@@ -2,7 +2,7 @@
     {{ props.title }}
 </div>
 <section class="fx-section">
-    <fieldset>
-        <ng-container *createPage></ng-container>
-    </fieldset>
+    <app-fieldset
+        [props]="props.data"
+    ></app-fieldset>
 </section>

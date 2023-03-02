@@ -2,3 +2,7 @@
     font-weight: 700;
     background-color: #eaeaea;
 }
+
+.migration_service_label {
+    border: 1px solid #ddd;
+}

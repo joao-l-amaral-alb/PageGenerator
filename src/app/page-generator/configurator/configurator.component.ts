@@ -34,7 +34,6 @@ export class ConfiguratorComponent implements OnInit {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';  
-  baseJson: string = '{"body": _body}';
 
   constructor(
     private _snackBar: MatSnackBar,

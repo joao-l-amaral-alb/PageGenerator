@@ -1,1 +1,18 @@
-<p>section-header works!</p>
+<section class="fx-section">
+    <div class="fx-collapse-container">
+        <div id="wrapper_section{{props.uniqueKey}}" class="fx-collapse fx-collapse-lvl2 {{props.headerDivClass}}">
+            <a 
+                class="fx-test-section {{props.anchorClass}}"
+                style="cursor: pointer;"
+            >
+                <span class="fx-collapse-title {{props.spanClass}}">{{props.sectionTitle}}</span>
+            </a>
+        </div>
+
+        <fieldset>
+
+            <ng-container *createPage></ng-container>
+
+        </fieldset>
+    </div>
+</section>

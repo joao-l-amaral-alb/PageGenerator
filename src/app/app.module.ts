@@ -6,7 +6,6 @@ import { HttpClientModule } from  '@angular/common/http';
 import { PageGeneratorService } from './shared/services/page-generator.service';
 import { PageGeneratorComponent } from './page-generator/generator/page-generator.component';
 import { CollapsableComponent } from './components/aggregators/collapsable/collapsable.component';
-import { KeyUpValueDownTableComponent } from './components/single/fieldset/keyUpValueDownTable.component';
 import { ConfiguratorComponent } from './page-generator/configurator/configurator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,18 +17,23 @@ import { CreatePageDirective } from './shared/directives/create-page.directive';
 import { ComponentFactoryComponent } from './page-generator/generator/component-factory/component-factory.component';
 import { BasicHeaderComponent } from './components/aggregators/basic-header/basic-header.component';
 import { SectionHeaderComponent } from './components/aggregators/section-header/section-header.component';
+import { FieldsetComponent } from './components/single/fieldset/fieldset.component';
+import { SideBySideFieldsetComponent } from './components/single/side-by-side-fieldset/side-by-side-fieldset.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageGeneratorComponent,
     CollapsableComponent,
-    KeyUpValueDownTableComponent,
+    FieldsetComponent,
     ConfiguratorComponent,
     CreatePageDirective,
     ComponentFactoryComponent,
     BasicHeaderComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    SideBySideFieldsetComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
