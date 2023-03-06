@@ -20,3 +20,9 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 # Attention
 
 It is necessary to have access to some private repositories not avaiable in this repo.
+
+# TODO:
+ - Remove the external dependencies
+ - Add a table coponent
+ - Add Modal and action buttons with dynamic acations
+ - Unify the inventory and result. It was a good intention with a subpar results.
