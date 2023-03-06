@@ -23,6 +23,6 @@ It is necessary to have access to some private repositories not avaiable in this
 
 # TODO:
  - Remove the external dependencies
- - Add a table coponent
+ - Add a table component
  - Add Modal and action buttons with dynamic acations
  - Unify the inventory and result. It was a good intention with a subpar results.
