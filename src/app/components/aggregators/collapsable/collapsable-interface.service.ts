@@ -1,3 +1,5 @@
+import { PageElement } from "src/app/interfaces/page-element";
+
 export interface Collapsable {
     onCompareToIgnoreCase: (a: string, b: string) => boolean;
     isCollapsed: () => boolean;
@@ -9,12 +11,13 @@ export type CollpableProps = {
   collapseSection: boolean;
   sectionTitle: string;
   fieldsetID: string;
-  uniqueKey?: string;
+  uniqueKey: string;
   parentID: string; 
   collapsedFieldSet: boolean;
   headerDivClass: string;
   anchorClass: string;
   iClass: string;
   spanClass: string;
+  childContent: PageElement[];
   customFunc?: () => void;
 }

@@ -48,6 +48,7 @@
 	{
 		"element": "fieldset",
 		"labeli18n": "commons.inventory",
+		"header": ["a","b","c"],
 		"content": [
 			{
 				"key":"ola",
@@ -57,6 +58,25 @@
 				"key":"oli",
 				"value":"olo"
 			}
+		]
+	}
+]
+
+
+[
+	{
+		"element": "table",
+		"labeli18n": "commons.inventory",
+		"headers":["a", "b", "c", "d"],
+		"content": [
+		{
+			"key":"ola",
+			"value":"ole"
+		},
+		{
+			"key":"oli",
+			"value":"olo"
+		}
 		]
 	}
 ]

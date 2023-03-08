@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { FormsModule } from '@angular/forms';
 import { CreatePageDirective } from './shared/directives/create-page.directive';
@@ -20,6 +22,7 @@ import { SectionHeaderComponent } from './components/aggregators/section-header/
 import { FieldsetComponent } from './components/single/fieldset/fieldset.component';
 import { SideBySideFieldsetComponent } from './components/single/side-by-side-fieldset/side-by-side-fieldset.component';
 import { ErrorComponent } from './components/error/error.component';
+import { TableComponent } from './components/single/table/table.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { ErrorComponent } from './components/error/error.component';
     BasicHeaderComponent,
     SectionHeaderComponent,
     SideBySideFieldsetComponent,
-    ErrorComponent
+    ErrorComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { ErrorComponent } from './components/error/error.component';
     MatInputModule,
     CodemirrorModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [PageGeneratorService],
   bootstrap: [AppComponent]

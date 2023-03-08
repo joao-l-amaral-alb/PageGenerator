@@ -1,9 +1,8 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewRef } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { loadCompoments } from 'src/app/helpers/page-factory';
-import { AggregatorElement } from 'src/app/interfaces/elements/aggregator-element';
 import { PageContext } from 'src/app/interfaces/area-enum';
-import { SingleElement } from 'src/app/interfaces/elements/single-element';
+import { PageElement } from 'src/app/interfaces/page-element';
 import { CreatePageDirective } from 'src/app/shared/directives/create-page.directive';
 import { PageGeneratorService } from 'src/app/shared/services/page-generator.service';
 
@@ -19,7 +18,7 @@ export class ComponentFactoryComponent implements OnInit {
   @ViewChild(CreatePageDirective, {static: true}) createPage!: CreatePageDirective;
   @ViewChild('templateref') templateref: TemplateRef<{}> | undefined;
 
-  pageElementsData: AggregatorElement[] | SingleElement[] | undefined;
+  pageElementsData: PageElement[] | undefined;
 
   constructor(
     private pageGeneratorService: PageGeneratorService
@@ -37,9 +36,9 @@ export class ComponentFactoryComponent implements OnInit {
     this.pageGenObservable = this.pageGeneratorService.configuratorUpdated.subscribe(
       () => {
         if(this.areaContext === PageContext.Inventory) {
-          this.pageElementsData = <AggregatorElement[] | SingleElement[]> this.pageGeneratorService.getInventory();
+          this.pageElementsData = <PageElement[]> this.pageGeneratorService.getInventory();
         } else {
-          this.pageElementsData = <AggregatorElement[] | SingleElement[]> this.pageGeneratorService.getResult();
+          this.pageElementsData = <PageElement[]> this.pageGeneratorService.getResult();
         }
         
         const viewContainerRef: ViewContainerRef = this.createPage.viewContainerRef;

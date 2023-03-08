@@ -22,7 +22,8 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 It is necessary to have access to some private repositories not avaiable in this repo.
 
 # TODO:
- - Remove the external dependencies
- - Add a table component
- - Add Modal and action buttons with dynamic acations
+ - Remove the external dependencies.
+ - Add a table component.
+ - Add Modal and action buttons with dynamic acations.
  - Unify the inventory and result. It was a good intention with a subpar results.
+ - Refactoring page-factory.ts relationg to props and child.

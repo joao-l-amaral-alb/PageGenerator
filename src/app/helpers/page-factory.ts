@@ -10,8 +10,11 @@ import { FieldsetProp } from "../components/single/fieldset/fieldset-interface.s
 import { FieldsetComponent } from "../components/single/fieldset/fieldset.component";
 import { SideBySideFieldsetProp } from "../components/single/side-by-side-fieldset/side-by-side-fieldset-interface.service";
 import { SideBySideFieldsetComponent } from "../components/single/side-by-side-fieldset/side-by-side-fieldset.component";
-import { AggregatorElement } from "../interfaces/elements/aggregator-element";
-import { SingleElement } from "../interfaces/elements/single-element";
+import { TableElementProps } from "../components/single/table/table-interface.service";
+import { TableComponent } from "../components/single/table/table.component";
+import { PageElement } from "../interfaces/page-element";
+import { v4 as uuid } from 'uuid';
+
 import { stringToBoolean } from "./generalHelper";
 
 export function setSingleObjectToListIfExists(obj: any){
@@ -25,60 +28,59 @@ export function setSingleObjectToListIfExists(obj: any){
 }
 
 export function loadCompoments(
-    data: AggregatorElement | SingleElement,
+    data: PageElement,
     viewContainerRef: ViewContainerRef,
     index?: number
 ) {
 
     let props: any ={};
     let componentRef: any;
-    let childContent: any;
-    let tempData: any;
     let aggrComponent: any;
     let singleComponent: any;
-
     switch(data.element) {
         case 'collapseSection':
-            tempData = <AggregatorElement> data;
+            console.log("collapseSection");
             aggrComponent = <CollpableProps> {
-                sectionTitle: tempData.labeli18n!,
-                collapseSection: stringToBoolean(tempData.configuration['isCollapsed']),
+                uniqueKey: uuid(),
+                sectionTitle: data.labeli18n!,
+                collapseSection: stringToBoolean(data.configuration['isCollapsed']),
                 fieldsetID: '',
                 parentID: '', 
-                collapsedFieldSet: stringToBoolean(tempData.configuration['isCollapsed']),
+                collapsedFieldSet: stringToBoolean(data.configuration['isCollapsed']),
                 headerDivClass: '',
                 anchorClass: '',
                 iClass: '',
-                spanClass: ''
+                spanClass: '',
+                childContent: data.content
             }
             props = aggrComponent;
-            childContent = data.content;
             componentRef = viewContainerRef.createComponent<CollapsableComponent>(CollapsableComponent);
             break;
         case 'basicHeader':
-            tempData = <AggregatorElement> data;
             aggrComponent = <BasicHeaderProps> {
-                title: tempData.labeli18n!
+                uniqueKey: uuid(),
+                title: data.labeli18n!,
+                childContent: data.content
             }
             props = aggrComponent;
-            childContent = data.content;
             componentRef = viewContainerRef.createComponent<BasicHeaderComponent>(BasicHeaderComponent);
             break;
         case 'sectionHeader':
-            tempData = <AggregatorElement> data;
             aggrComponent = <SectionHeaderProps> {
-                sectionTitle: tempData.labeli18n!,
+                uniqueKey: uuid(),
+                sectionTitle: data.labeli18n!,
                 headerDivClass: '',
                 anchorClass: '',
-                spanClass: ''
+                spanClass: '',
+                childContent: data.content
             }
             props = aggrComponent;
-            childContent = data.content;
             componentRef = viewContainerRef.createComponent<SectionHeaderComponent>(SectionHeaderComponent);
             break;
         case 'fieldset':
         case 'inlineFieldset':
             singleComponent = <FieldsetProp> {
+                uniqueKey: uuid(),
                 typeOfFielset: data.element,
                 content: data.content
             }
@@ -91,11 +93,21 @@ export function loadCompoments(
                 content: data.content
             }
             singleComponent = <SideBySideFieldsetProp> {
+                uniqueKey: uuid(),
                 title: data.labeli18n,
                 data: extraComponent
             }
             props = singleComponent;
             componentRef = viewContainerRef.createComponent<SideBySideFieldsetComponent>(SideBySideFieldsetComponent);
+            break;
+        case 'table':
+            singleComponent = <TableElementProps> {
+                uniqueKey: uuid(),
+                headers: data.headers,
+                content: data.content
+            }
+            props = singleComponent;
+            componentRef = viewContainerRef.createComponent<TableComponent>(TableComponent);
             break;
         default:
             props = singleComponent;
@@ -103,7 +115,6 @@ export function loadCompoments(
     }
 
     componentRef.instance.props = props;
-    componentRef.instance.childContent = childContent; //Only for agg components
     viewContainerRef.insert(componentRef.hostView, index);
 
 }

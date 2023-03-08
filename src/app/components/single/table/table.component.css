@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+}
+
+tr.mat-row, tr.mat-footer-row {
+    height: 35px;
+}
+
+tr.mat-header-row {
+    height: 40px;
+}

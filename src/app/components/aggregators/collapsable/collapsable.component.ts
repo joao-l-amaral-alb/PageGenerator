@@ -1,10 +1,7 @@
 import { Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { compareToIgnoreCase } from 'src/app/helpers/generalHelper';
 import { loadCompoments } from 'src/app/helpers/page-factory';
-import { AggregatorElement } from 'src/app/interfaces/elements/aggregator-element';
-import { SingleElement } from 'src/app/interfaces/elements/single-element';
 import { CreatePageDirective } from 'src/app/shared/directives/create-page.directive';
-import { v4 as uuid } from 'uuid';
 import { Collapsable, CollpableProps } from './collapsable-interface.service';
 
 @Component({
@@ -14,22 +11,20 @@ import { Collapsable, CollpableProps } from './collapsable-interface.service';
 })
 export class CollapsableComponent implements OnInit, Collapsable {
   @Input("componentProperties") props!: CollpableProps;
-  @Input("pageElementsData") childContent: AggregatorElement[] | SingleElement[] | undefined;
 
   @ViewChild(CreatePageDirective, {static: true}) createPage!: CreatePageDirective;
  
   constructor() { }
 
-  ngOnInit(): void { 
-    this.props.uniqueKey = uuid(); //Mandatory in every component
+  ngOnInit(): void {
     console.log(`Component: COLLAPSABLE :: uuid => ${this.props.uniqueKey}`);
 
     const viewContainerRef: ViewContainerRef = this.createPage.viewContainerRef;
     viewContainerRef.clear();
 
-    if(this.childContent){
+    if(this.props.childContent){
 
-      for(let [index, pageElementData] of this.childContent.entries()){
+      for(let [index, pageElementData] of this.props.childContent.entries()){
         loadCompoments(pageElementData, viewContainerRef, index);
       }
 
