@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { calcBootstrap3RemainingColSize } from 'src/app/helpers/generalHelper';
 import { FieldsetProp } from './fieldset-interface.service';
-import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-fieldset',
@@ -24,8 +23,7 @@ export class FieldsetComponent implements OnInit, FieldsetComponent{
   }
 
   ngOnInit(): void {
-    this.props.uuid = uuid(); //Mandatory in every component
-    console.log(`Component: ${this.props.typeOfFielset.toUpperCase()} :: uuid => ${this.props.uuid}`);
+    console.log(`Component: ${this.props.typeOfFielset.toUpperCase()} :: uuid => ${this.props.uniqueKey}`);
 
     switch(this.props.typeOfFielset) {
       case "fieldset":

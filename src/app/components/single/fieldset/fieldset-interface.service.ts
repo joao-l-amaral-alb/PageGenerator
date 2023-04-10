@@ -1,5 +1,5 @@
 export interface FieldsetProp {
-  uuid?: string;
+  uniqueKey?: string;
   typeOfFielset: string;
   content: FieldsetChildProps[];
 }

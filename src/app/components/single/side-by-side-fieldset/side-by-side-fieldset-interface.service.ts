@@ -1,7 +1,7 @@
 import { FieldsetProp } from "../fieldset/fieldset-interface.service";
 
 export interface SideBySideFieldsetProp {
-  uuid?: string;
+  uniqueKey?: string;
   title: string;
   data: FieldsetProp;
 }

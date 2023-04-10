@@ -69,14 +69,8 @@
 		"labeli18n": "commons.inventory",
 		"headers":["a", "b", "c", "d"],
 		"content": [
-		{
-			"key":"ola",
-			"value":"ole"
-		},
-		{
-			"key":"oli",
-			"value":"olo"
-		}
+          ["ola0","ola1","ola2","ola3"],
+          ["ole1","ole1","ole2","ole3"]
 		]
 	}
 ]

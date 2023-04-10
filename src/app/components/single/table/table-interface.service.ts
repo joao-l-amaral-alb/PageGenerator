@@ -1,10 +1,15 @@
 export interface TableElementProps {
-    uuid?: string,
+    uniqueKey?: string,
     headers: string[],
-    content: TableElement[]
+    content: [{[key: string]: string}],
 }
 
+export type TableRow = {
+    [key: string]: string
+}
+
+/* 
 export interface TableElement {
     key: string,
     value: string
-}  
+}   */
