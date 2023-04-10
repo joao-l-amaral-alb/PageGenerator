@@ -22,7 +22,7 @@ Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 It is necessary to have access to some private repositories not avaiable in this repo.
 
 # TODO:
- - Remove external dependencies.
+ - Remove the private repositores dependencies.
  - ~~Add a table component.~~
  - Add a modal and action buttons with dynamic actions.
  - Unify the inventory and result sections. Although the intention was good, the results were subpar.
